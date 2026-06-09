@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="robo_arm_urdf_v1">
+  <group name="arm">
+    <chain base_link="robo_arm_urdf_v1_base_link" tip_link="robo_arm_urdf_v1_end_link" />
+  </group>
+
+  <group_state name="home" group="arm">
+    <joint name="j0_joint" value="0" />
+    <joint name="j1_joint" value="0" />
+    <joint name="j2_joint" value="0" />
+    <joint name="j3_joint" value="0" />
+    <joint name="j4_joint" value="0" />
+    <joint name="j5_joint" value="0" />
+  </group_state>
+
+  <disable_collisions link1="robo_arm_urdf_v1_world" link2="robo_arm_urdf_v1_base_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_base_link" link2="robo_arm_urdf_v1_j0_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_base_link" link2="robo_arm_urdf_v1_j1_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_base_link" link2="robo_arm_urdf_v1_j2_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j0_link" link2="robo_arm_urdf_v1_j1_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_j0_link" link2="robo_arm_urdf_v1_j2_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j1_link" link2="robo_arm_urdf_v1_j2_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_j1_link" link2="robo_arm_urdf_v1_j3_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j1_link" link2="robo_arm_urdf_v1_j4_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j2_link" link2="robo_arm_urdf_v1_j3_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_j2_link" link2="robo_arm_urdf_v1_j4_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j2_link" link2="robo_arm_urdf_v1_j5_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j2_link" link2="robo_arm_urdf_v1_end_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j3_link" link2="robo_arm_urdf_v1_j4_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_j3_link" link2="robo_arm_urdf_v1_j5_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j3_link" link2="robo_arm_urdf_v1_end_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j4_link" link2="robo_arm_urdf_v1_j5_link" reason="Adjacent" />
+  <disable_collisions link1="robo_arm_urdf_v1_j4_link" link2="robo_arm_urdf_v1_end_link" reason="Never" />
+  <disable_collisions link1="robo_arm_urdf_v1_j5_link" link2="robo_arm_urdf_v1_end_link" reason="Adjacent" />
+</robot>

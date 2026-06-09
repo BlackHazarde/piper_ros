@@ -1,0 +1,9 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: robo_arm_urdf_v1_moveit_config
+    relative_path: config/robo_arm_urdf_v1.urdf.xacro
+  srdf:
+    relative_path: config/robo_arm_urdf_v1.srdf
+  package_settings:
+    author_name: todo
+    author_email: todo@example.com

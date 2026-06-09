@@ -1,0 +1,78 @@
+<launch>
+  <arg
+    name="use_gui"
+    default="false"
+    description="Start joint_state_publisher_gui instead of joint_state_publisher." />
+
+  <let
+    name="urdf_file"
+    value="$(find-pkg-share robo_arm_urdf_v1)/urdf/robo_arm_urdf_v1.urdf.xacro" />
+
+  <let
+    name="rviz_config_file"
+    value="$(find-pkg-share robo_arm_urdf_v1)/rviz/display.rviz" />
+
+  <node
+    pkg="robot_state_publisher"
+    exec="robot_state_publisher"
+    name="robo_arm_robot_state_publisher"
+    output="screen">
+    <param
+      name="robot_description"
+      type="str"
+      value="$(command 'xacro $(var urdf_file) prefix:=robo_arm_urdf_v1_')" />
+    <remap
+      from="robot_description"
+      to="/robo_arm_urdf_v1/robot_description" />
+    <remap
+      from="joint_states"
+      to="/robo_arm_urdf_v1/joint_states" />
+  </node>
+
+  <node
+    pkg="joint_state_publisher"
+    exec="joint_state_publisher"
+    name="robo_arm_joint_state_publisher"
+    output="screen"
+    unless="$(var use_gui)">
+    <param
+      name="rate"
+      value="30" />
+    <param
+      name="publish_default_positions"
+      value="true" />
+    <remap
+      from="robot_description"
+      to="/robo_arm_urdf_v1/robot_description" />
+    <remap
+      from="joint_states"
+      to="/robo_arm_urdf_v1/joint_states" />
+  </node>
+
+  <node
+    pkg="joint_state_publisher_gui"
+    exec="joint_state_publisher_gui"
+    name="robo_arm_joint_state_publisher_gui"
+    output="screen"
+    if="$(var use_gui)">
+    <param
+      name="rate"
+      value="30" />
+    <param
+      name="publish_default_positions"
+      value="true" />
+    <remap
+      from="robot_description"
+      to="/robo_arm_urdf_v1/robot_description" />
+    <remap
+      from="joint_states"
+      to="/robo_arm_urdf_v1/joint_states" />
+  </node>
+
+  <node
+    pkg="rviz2"
+    exec="rviz2"
+    name="robo_arm_rviz2"
+    output="screen"
+    args="-d $(var rviz_config_file)" />
+</launch>

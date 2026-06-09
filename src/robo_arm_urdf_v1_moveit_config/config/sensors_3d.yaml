@@ -1,0 +1,19 @@
+sensors: []
+
+# Enable this block after installing the matching occupancy map monitor plugin
+# and replacing image_topic with the real depth image topic.
+#
+# sensors:
+#   - default_sensor
+#
+# default_sensor:
+#   sensor_plugin: occupancy_map_monitor/DepthImageOctomapUpdater
+#   image_topic: /head_mount_kinect/depth_registered/image_raw
+#   queue_size: 5
+#   near_clipping_plane_distance: 0.3
+#   far_clipping_plane_distance: 5.0
+#   shadow_threshold: 0.2
+#   padding_scale: 4.0
+#   padding_offset: 0.03
+#   max_update_rate: 1.0
+#   filtered_cloud_topic: filtered_cloud

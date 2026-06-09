@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="robo_arm_urdf_v1_ros2_control" params="name initial_positions_file">
+    <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}" />
+
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+      </hardware>
+
+      <joint name="j0_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['j0_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity" />
+      </joint>
+      <joint name="j1_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['j1_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity" />
+      </joint>
+      <joint name="j2_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['j2_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity" />
+      </joint>
+      <joint name="j3_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['j3_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity" />
+      </joint>
+      <joint name="j4_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['j4_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity" />
+      </joint>
+      <joint name="j5_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['j5_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity" />
+      </joint>
+    </ros2_control>
+  </xacro:macro>
+</robot>
